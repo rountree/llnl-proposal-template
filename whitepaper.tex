@@ -1,0 +1,210 @@
+% --------------------------------------------------
+% LLNL Proposal Whitepaper Template
+% --------------------------------------------------
+\documentclass[11pt]{article}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{times}
+
+% --------------------------------------------------
+% Colors
+% --------------------------------------------------
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+
+\definecolor{secblue}{HTML}{3B5E7F}
+\definecolor{subsecblue}{HTML}{4F81BD}
+\definecolor{hdrgray}{HTML}{A7B7C7}
+
+\definecolor{boxblue}{HTML}{587590}
+\definecolor{boxgray}{HTML}{E0E6E6}
+
+% --------------------------------------------------
+% Draft watermark -- uncomment for drafts
+% --------------------------------------------------
+%\usepackage[colorspec=.9]{draftwatermark}
+%\SetWatermarkText{DRAFT}
+%\SetWatermarkScale{1}
+
+% --------------------------------------------------
+% Extra packages
+% --------------------------------------------------
+\usepackage[subfigure]{tocloft}
+\usepackage{inconsolata}
+\usepackage{abstract}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks,
+  citecolor=violet,
+  linkcolor=secblue,
+  urlcolor=violet,
+  breaklinks
+}
+\usepackage{wrapfig}
+\usepackage{url}
+\usepackage{breakurl}
+\usepackage{pdfpages}
+\usepackage{ctable}
+\usepackage{multirow}
+\usepackage{appendix}
+\usepackage{lipsum}
+\usepackage{mdframed}
+\usepackage{fancyvrb}
+\usepackage{tabu}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{xspace}
+
+\usepackage{pdfpages}
+
+% Sort multiple citations by citation number
+\usepackage[sortcites=true]{biblatex}
+\addbibresource{strong-foundations-for-sustainability-fy23.bib}
+
+% Space reduction
+\usepackage{caption}
+\DeclareCaptionFont{subsecblue}{\color{subsecblue}}
+\captionsetup{labelfont={small,subsecblue,bf},font=small}
+
+\usepackage{enumitem}
+\setlist{noitemsep,topsep=2pt}
+
+% --------------------------------------------------
+% Section heading format
+% --------------------------------------------------
+\usepackage{titlesec}
+
+\titlespacing{\parameterization}{0em}{.4em}{.5em}
+\titlespacing{\section}{0em}{.4em}{.1em}
+\titlespacing{\subsection}{0em}{.4em}{.1em}
+\titlespacing{\subsubsection}{0em}{.4em}{.1em}
+\titlespacing{\paragraph}{0em}{.1em}{.5em}
+
+\def\secformat{\sffamily\bfseries}
+
+\titleformat{\section}{\large\secformat\color{secblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\secformat\color{subsecblue}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\secformat\color{subsecblue}}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[runin]{\small\secformat}{\theparagraph}{1em}{}
+
+\newcommand{\tablesec}[1]{%
+        \vspace{.1em}
+        \textbf{\color{subsecblue} #1}\newline}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{.5em}
+
+% --------------------------------------------------
+% Make TOC fonts match sections
+% --------------------------------------------------
+\renewcommand\abstractnamefont{\normalsize\secformat\color{secblue}}
+\renewcommand\contentsname{Table of Contents}
+\renewcommand\cfttoctitlefont{\small\secformat\color{secblue}}
+\renewcommand\cftsecfont{\small\secformat\color{secblue}}
+\renewcommand\cftsubsecfont{\small\sffamily\color{subsecblue}}
+\renewcommand\cftsubsubsecfont{\small\sffamily\color{subsecblue}}
+
+% --------------------------------------------------
+% Use \todo and \ncite to add some red text where
+% more text or a citation
+% --------------------------------------------------
+\newcommand{\todo}[1]{{\bf \color{red} #1}}
+\newcommand{\ncite}{{\color{red}[cite]}}
+
+% --------------------------------------------------
+% ADD YOUR TITLE HERE (it's used in several places)
+% --------------------------------------------------
+\newcommand{\mytitle}{My Awesome Proposal}
+\newcommand{\foanumber}{DE-FOA-XXXXXXX}
+\newcommand{\foaname}{Extreme Paperwork Scalability}
+
+% --------------------------------------------------
+% Headers & Geometry
+% --------------------------------------------------
+
+% Header for other pages
+\usepackage{fancyhdr}
+
+% Header for first page
+\fancypagestyle{first}{
+        \lhead{\includegraphics[width=2.7in]{images/llnl-logo.png}}
+        \rhead{LLNL-PROP-XXXXXX\\
+        Program Announcement Number: \foanumber\\
+        \foaname}
+        \cfoot{}
+}
+
+
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+\lhead{
+        \begin{tikzpicture}
+                \node[white,draw=white,shape=rectangle,fill=hdrgray] at (-8, 12)
+                {\sf\footnotesize \hbox to \textwidth{
+                        \mytitle
+                        \hfill
+                        FY23 ASCR Proposal}
+                };
+        \end{tikzpicture}
+}
+\chead{}
+\rhead{}
+
+% --------------------------------------------------
+% Title, Author, Proposal info table
+% --------------------------------------------------
+\def\lbox{\color{secblue}\small\sffamily\bfseries}
+\def\rbox{\small}
+
+%
+% Title
+\title{\vspace{-.4in}\sf\huge\color{secblue}\mytitle\vspace{-.2in}}
+
+%
+% Author Box is actually all the metadata they want
+%
+\author{
+\begin{tabularx}{0.8\textwidth}{r X}
+  \lbox Principal Investigator     & \rbox Name, Job Title \\
+  \lbox Institution                & \rbox Lawrence Livermore National Laboratory \\
+  \lbox Email                      & \rbox (925) 42X-XXXX, \href{mailto:you@llnl.gov}{you@llnl.gov} \\
+  \hline
+\end{tabularx}
+}
+\date{}
+
+% --------------------------------------------------
+% Main document
+% --------------------------------------------------
+\begin{document}
+
+\maketitle
+\thispagestyle{first}
+
+\section{OBJECTIVES}
+Proposals have always been a lot of work, but in recent years the complexity of
+submitting one has grown expoentially. It is projected that by the end of the 2020's,
+ASCR proposals will require more paperwork than one can fit in the average HPC
+center's tape archive. This proposal will pioneer techniques to allow us to do more
+paperwork than ever before, saving valuable machine cycles and using much more
+efficient humans to fill in all the appopriate forms.
+
+
+\section{TECHNICAL APPROACH}
+Electronic forms are primarily about clicking and tabbing, so our approach focuses on
+ways for humans to build strength in their fingers and to develop muscle memory to hit
+the mouse buttong and the tab key as fast as possible. As a second-order improvement, we
+also focus on return key and copy-paste speed.
+
+\section{OUTCOMES}
+We think our work will allow the office of Science to put out FOAs at a much more rapid
+pace than they have in the past, since the main bottleneck will have been removed.
+
+\begingroup
+\section{REFERENCES}
+\printbibliography[heading=none]
+\endgroup
+
+\end{document}

@@ -1,0 +1,545 @@
+% --------------------------------------------------
+% LLNL Proposal Template
+% --------------------------------------------------
+\documentclass[11pt]{article}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{times}
+
+% --------------------------------------------------
+% Colors
+% --------------------------------------------------
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+
+\definecolor{secblue}{HTML}{3B5E7F}
+\definecolor{subsecblue}{HTML}{4F81BD}
+\definecolor{hdrgray}{HTML}{A7B7C7}
+
+\definecolor{boxblue}{HTML}{587590}
+\definecolor{boxgray}{HTML}{E0E6E6}
+
+% --------------------------------------------------
+% Draft watermark -- uncomment for drafts
+% --------------------------------------------------
+%\usepackage[colorspec=.9]{draftwatermark}
+%\SetWatermarkText{DRAFT}
+%\SetWatermarkScale{1}
+
+% --------------------------------------------------
+% Extra packages
+% --------------------------------------------------
+\usepackage[subfigure]{tocloft}
+\usepackage{inconsolata}
+\usepackage{abstract}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks,
+  citecolor=violet,
+  linkcolor=secblue,
+  urlcolor=violet,
+  breaklinks
+}
+\usepackage{wrapfig}
+\usepackage{url}
+\usepackage{breakurl}
+\usepackage{pdfpages}
+\usepackage{ctable}
+\usepackage{multirow}
+\usepackage{appendix}
+\usepackage{lipsum}
+\usepackage{mdframed}
+\usepackage{fancyvrb}
+\usepackage{tabu}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{xspace}
+
+\usepackage{pdfpages}
+
+% Sort multiple citations by citation number
+\usepackage[sortcites=true]{biblatex}
+\addbibresource{strong-foundations-for-sustainability-fy23.bib}
+
+% Space reduction
+\usepackage{caption}
+\DeclareCaptionFont{subsecblue}{\color{subsecblue}}
+\captionsetup{labelfont={small,subsecblue,bf},font=small}
+
+\usepackage{enumitem}
+\setlist{noitemsep,topsep=2pt}
+
+% --------------------------------------------------
+% Section heading format
+% --------------------------------------------------
+\usepackage{titlesec}
+
+\titlespacing{\parameterization}{0em}{.4em}{.5em}
+\titlespacing{\section}{0em}{.4em}{.1em}
+\titlespacing{\subsection}{0em}{.4em}{.1em}
+\titlespacing{\subsubsection}{0em}{.4em}{.1em}
+\titlespacing{\paragraph}{0em}{.1em}{.5em}
+
+\def\secformat{\sffamily\bfseries}
+
+\titleformat{\section}{\large\secformat\color{secblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\secformat\color{subsecblue}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\secformat\color{subsecblue}}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[runin]{\small\secformat}{\theparagraph}{1em}{}
+
+\newcommand{\tablesec}[1]{%
+        \vspace{.1em}
+        \textbf{\color{subsecblue} #1}\newline}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{.5em}
+
+% --------------------------------------------------
+% Make TOC fonts match sections
+% --------------------------------------------------
+\renewcommand\abstractnamefont{\normalsize\secformat\color{secblue}}
+\renewcommand\contentsname{Table of Contents}
+\renewcommand\cfttoctitlefont{\small\secformat\color{secblue}}
+\renewcommand\cftsecfont{\small\secformat\color{secblue}}
+\renewcommand\cftsubsecfont{\small\sffamily\color{subsecblue}}
+\renewcommand\cftsubsubsecfont{\small\sffamily\color{subsecblue}}
+
+% --------------------------------------------------
+% Use \todo and \ncite to add some red text where
+% more text or a citation
+% --------------------------------------------------
+\newcommand{\todo}[1]{{\bf \color{red} #1}}
+\newcommand{\ncite}{{\color{red}[cite]}}
+
+% --------------------------------------------------
+% ADD YOUR TITLE HERE (it's used in several places)
+% --------------------------------------------------
+\newcommand{\mytitle}{My Awesome Proposal}
+\newcommand{\foanumber}{DE-FOA-XXXXXXX}
+\newcommand{\foaname}{Extreme Paperwork Scalability}
+
+% --------------------------------------------------
+% Headers & Geometry
+% --------------------------------------------------
+
+% Header for other pages
+\usepackage{fancyhdr}
+
+% Header for first page
+\fancypagestyle{first}{
+        \lhead{\includegraphics[width=2.7in]{images/llnl-logo.png}}
+        \rhead{LLNL-PROP-XXXXXX\\
+        Program Announcement Number: \foanumber\\
+        \foaname}
+        \cfoot{}
+}
+
+
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+\lhead{
+        \begin{tikzpicture}
+                \node[white,draw=white,shape=rectangle,fill=hdrgray] at (-8, 12)
+                {\sf\footnotesize \hbox to \textwidth{
+                        \mytitle
+                        \hfill
+                        FY23 ASCR Proposal}
+                };
+        \end{tikzpicture}
+}
+\chead{}
+\rhead{}
+
+% --------------------------------------------------
+% Title, Author, Proposal info table
+% --------------------------------------------------
+\def\lbox{\cellcolor{boxblue}\color{white}\small\sffamily\bfseries}
+\def\rbox{\cellcolor{boxgray}\small}
+\taburulecolor{white}
+
+%
+% Title
+\title{\sf\huge\color{secblue}\mytitle}
+
+%
+% Author Box is actually all the metadata they want
+%
+\author{
+\def\arraystretch{1.4}
+\begin{tabularx}{0.8\textwidth}{r X}
+  \lbox Applicant/Institution      & \rbox Lawrence Livermore National Laboratory \\\hline
+  \lbox Address                    & \rbox 7000 East Ave L-557, Livermore, CA, 94550 \\\hline
+  \hline
+  \hline
+  \lbox Lead PI Name               & \rbox Your Name \\\hline
+  \lbox Telephone                  & \rbox (925) 42X-XXXX \\\hline
+  \lbox Email                      & \rbox \href{mailto:you@llnl.gov}{you@llnl.gov} \\\hline
+  \hline
+  \hline
+  \lbox Administrative POC         & \rbox Chung Bothwell \\\hline
+  \lbox Telephone                  & \rbox (925) 423-3614 \\\hline
+  \lbox Email                      & \rbox \href{mailto:bothwell1@llnl.gov}{bothwell1@llnl.gov} \\\hline
+  \hline
+  \hline
+  \lbox FOA Number                 & \rbox DE-FOA-XXXXXX \\\hline
+  \lbox DOE/SC Program Office      & \rbox Office of Advanced Scientific Computing Research \\\hline
+  \lbox DOE/SC Technical Contacts  & \rbox Program Manager Name\\\hline
+  \hline
+  \hline
+  \lbox Research Area              & \rbox \foaname\\\hline
+\end{tabularx}
+}
+\date{}
+
+% --------------------------------------------------
+% Main document
+% --------------------------------------------------
+\begin{document}
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+% --------------------------------------------------
+% Project Summary
+% --------------------------------------------------
+\thispagestyle{first}
+
+{~\vfill~\sf\huge\color{secblue}%
+  \hfill \mytitle \hfill
+}
+
+\begin{center}\small\def\arraystretch{0.96}
+  \begin{tabular}{lll}
+    Name 1 & Institution 1 & Role 1 \\
+    Name 2 & Institution 2 & Role 2 \\
+  \end{tabular}
+\end{center}
+
+\paragraph{Project Summary.}
+Proposals have always been a lot of work, but in recent years the complexity of
+submitting one has grown expoentially. It is projected that by the end of the 2020's,
+ASCR proposals will require more paperwork than one can fit in the average HPC
+center's tape archive. This proposal will pioneer techniques to allow us to do more
+paperwork than ever before, saving valuable machine cycles and using much more
+efficient humans to fill in all the appopriate forms.
+
+\vfill
+
+% --------------------------------------------------
+% Title Page
+% --------------------------------------------------
+\newpage
+\maketitle
+
+% --------------------------------------------------
+% Budget Breakdown Page
+% --------------------------------------------------
+\newpage
+\section*{Summary of Subawards and Project Structure}
+\hypertarget{sec:budget-summary}{}
+\taburulecolor{black}
+\begin{center}
+  \begin{tabular}{ |l|p{1.5in}|l|r|r|r| }
+    \hline
+    \multicolumn{6}{ |c| }{\bf Budget Summary}\\\hline
+    \hline
+            & {\bf Name} & {\bf Institution}  & {\bf Year 1}  & {\bf Year 2}  & {\bf Total} \\\hline
+    Lead PI & Your Name  & Institution 1      & \$XXX,XXX     & \$XXX,XXX     & \$XXX,XXX   \\\hline
+    Co-PI   & Their Name & Institution 2      & \$XXX,XXX     & \$XXX,XXX     & \$XXX,XXX   \\\hline
+  \end{tabular}
+\end{center}
+
+\subsection*{Leadership Structure}
+
+Description of Leadership Structure.
+
+\subsection*{Facilities, Equipment, and Resources}
+
+LLNL Facilities and Equipment are summarized in Appendix~\ref{sec:facilities}.
+
+\subsection*{Mentoring}
+
+Mentoring and outreach efforts for students and early-stage researchers are summarized
+in the PIER in Appendix~\ref{sec:pier}.
+
+% --------------------------------------------------
+% Table of contents
+% Tweak the first baselinestretch below to compress
+% it if you need to.
+% --------------------------------------------------
+\newpage
+\renewcommand{\baselinestretch}{1.0}\normalsize
+\tableofcontents
+\renewcommand{\baselinestretch}{1.0}\normalsize
+
+
+% --------------------------------------------------
+% Narrative
+% --------------------------------------------------
+\newpage
+\pagenumbering{arabic}
+\section{Narrative}
+
+Proposals require all kinds of paperwork.
+
+\subsection{Section 1}
+We list the various traditional kinds here.
+
+\subsection{Section 2}
+New kinds of paperwork are constantely being developed by the DOE. It is hard to keep
+up.
+
+\subsection{Section 3}
+Our techniques will revolutionize paperwork handling within DOE, saving time for
+much-valued machines and leveraging the humans for the hard parts.
+
+\subsection{Conclusions}
+We will need to develop even more advanced paperwork techniques in the future. Hopefully
+the techniques developed here will get us through this funding round, though.
+
+% --------------------------------------------------
+% References
+% --------------------------------------------------
+\newpage
+\appendix % start appendices here
+
+\begingroup
+\section{References}
+\printbibliography[heading=none]
+\endgroup
+
+% --------------------------------------------------
+% Letters of Support
+% -------------------------------------------------
+\newpage
+\section{Letters of Support}
+
+Letters of support in alphabetical order.
+
+%\begin{itemize}
+%\item \hyperlink{letter-one}{First Letter}
+%\item \hyperlink{letter-two}{Second Letter}
+%\end{itemize}
+
+%\clearpage
+%\hypertarget{letter-one}{}
+%\includepdf[pages=-]{letters-of-support/one.pdf}
+%\hypertarget{letter-two}{}
+%\includepdf[pages=-]{letters-of-support/two.pdf}
+
+% --------------------------------------------------
+% Facilities
+% -------------------------------------------------
+\section{Facilities and Other Resources} \label{sec:facilities}
+See the following pages for a description of the Livermore computing facilities
+that are available to the project team.
+
+\includepdf[pages=-]{includes/lc-facilities}
+
+% --------------------------------------------------
+% Equipment
+% -------------------------------------------------
+\section{Equipment}
+
+No special equipment is needed for this project.
+
+% --------------------------------------------------
+% Data Management
+% -------------------------------------------------
+\newpage
+\section{Data Management Plan}
+
+% Based on CASC-Data-Management-Plan_2022-05-24_3.pdf from
+% https://computing-int.llnl.gov/casc/casc-templates
+
+\noindent {\bf Data Types and Sources.}
+The primary data artifacts of the proposed research will be implementations of
+new algorithms and methodologies in software. Secondary data artifacts will
+pertain to the digital research data needed to validate published research
+findings: the input files, input data, and metadata (e.g., number of processors,
+threads, etc.) used to generate any published data; instructions or scripts that
+enable others to reproduce simulations; instructions or scripts required for
+data analysis; data analysis results used to produce tables, plots, and charts
+in publications; and, as appropriate, raw output data if it is impractical for
+others to reproduce the simulations.
+
+\medskip
+
+\noindent {\bf Content and Format.}
+Software libraries will be released as source code with basic documentation.
+Source for research (non-production) code will be made available with sufficient
+documentation to facilitate validation of published research results. Secondary
+data artifacts will be accompanied with text or PDF files explaining the
+provenance, data format, and way in which the data was used in the published
+research.
+
+\medskip
+
+\noindent {\bf Sharing and Preservation.}
+\begin{itemize}
+\item As allowed by Laboratory policies for the transmittal of data, supported
+  software packages will be made available as source code for download from the
+  LLNL Software Portal: \url{http://software.llnl.gov}. All software will be
+  made available for at least three years from the conclusion of the date of
+  publication.
+\item Similarly, source code for unsupported software and secondary data
+  artifacts will be made available by the PI as communicated within published
+  research results. Due diligence will be made to curate the input files and
+  scripts required to execute published test cases as well as the resulting data
+  and data analysis scripts, if applicable, so that results may be independently
+  validated.
+\item At the PI's discretion, secondary data artifacts may be made available
+  through the Green Data Oasis (GDO), a large data store on the unrestricted
+  LLNL network. This facility is intended to facilitate the sharing of
+  scientific data with external collaborators. The GDO consists of two Grid
+  Interface Front-End Nodes (GrIFENs), a switch, and seven Scalable Storage
+  Units (SSUs), which provide a combined capacity of 620TB of RAID storage.
+  Solaris zones will be used to create one or more virtual hosts for each
+  project, allowing each project to have its own IP addresses, run their own
+  services, and do so in such a way as to not interfere with other projects.
+  Fair share resource management will be used to prevent one project from using
+  resources to the exclusion of other projects.
+\item When appropriate, community-standard test data and problems that are made
+  publicly available by third parties will be used. Responsibility for
+  maintaining these standard tests will remain with these third parties.
+\item As allowed by Laboratory policies for the transmittal of data, data will
+  be released under a standard open source license.
+\item A concerted effort will be made to use non-proprietary software to build,
+  install, run, or analyze the results of software developed and released by
+  this project. However, proprietary tools and software will be used when no
+  suitable non-proprietary option exists, and the use of such proprietary tools
+  will significantly advance the goals of the research.
+\item During the duration of the project, all data will be managed under a
+  version control system, including tagged versions of the software used to
+  produce specific research results. At the conclusion of the project, the
+  repository will be retained for no less than three years. An archive of the
+  repository will be made on HPSS archival storage.
+\item In the event the PI leaves the Laboratory, the institution will retain a
+  copy of all data, and the PI will designate a successor to handle subsequent
+  requests for data.
+\item Should LLNL adopt an institutional plan for data management consistent
+  with DOE data management policies, this institutional plan will supersede the
+  plan described here.
+\end{itemize}
+
+\noindent {\bf Protection.}
+In compliance with Federal, State, and local statues and regulations, Lawrence
+Livermore National Laboratory has established standards and policies regarding
+the transmittal, storage, and destruction of data to protect confidentiality,
+personal privacy, Personally Identifiable Information, and U.S. national,
+homeland, and economic security; recognize proprietary interests, business
+confidential information, and intellectual property rights; and avoid
+significant negative impact on innovation and U.S. competitiveness. The PI will
+conduct all work in accordance to these standards with support from LLNL's
+Office of Classification and Export Control and the Innovation and Partnerships
+Office.
+
+\medskip
+
+\noindent {\bf Rationale.}
+The primary products for research in this area (for the purposes of this data
+management plan) are algorithms, test cases, and/or the input, output, and
+performance data as described and documented in peer-reviewed papers and
+implemented in software. Thus, the main focus of the proposed data management
+plan is on providing access to the software produced and the necessary data to
+reproduce published results. Making correct implementations and test data
+available to the research community will allow others to validate the results
+and provide common problems for comparison of alternative approaches. In the
+broader scientific computing community, it also will allow for more rapid
+adoption of new techniques.
+
+% --------------------------------------------------
+% PIER Plan
+% -------------------------------------------------
+\newpage
+\section{Plan for Promoting Inclusive and Equitable Research (PIER)}
+\label{sec:pier}
+
+Your PIER Plan Here.
+
+% --------------------------------------------------
+% Biographical Sketches
+% --------------------------------------------------
+\newpage
+\section{Biographical Sketches}
+
+Biographical sketches of senior/key personnel in alphabetical order.
+
+%\begin{itemize}
+%\item \hyperlink{bio-one}{Your Name}
+%\item \hyperlink{bio-two}{Your Co-PI}
+%\end{itemize}
+
+%\clearpage
+%\hypertarget{bio-one}{}
+%\includepdf[pages=-]{bios/bio-you.pdf}
+%\hypertarget{bio-two}{}
+%\includepdf[pages=-]{bios/bio-copi.pdf}
+
+% --------------------------------------------------
+% Current and Pending Support
+% -------------------------------------------------
+\newpage
+\section{Current and Pending Support}
+
+Current and pending support for senior/key personnel in alphabetical order.
+
+%\begin{itemize}
+%\item \hyperlink{cp-one}{Your Name}
+%\item \hyperlink{cp-two}{Your Co-PI}
+%\end{itemize}
+
+%\clearpage
+%\hypertarget{cp-one}{}
+%\includepdf[pages=-]{cp/cp-you.pdf}
+%\hypertarget{cp-two}{}
+%\includepdf[pages=-]{cp/cp-copi.pdf}
+
+
+% --------------------------------------------------
+% Budget
+% -------------------------------------------------
+
+\newpage
+\section{Lead Institution Budget}
+
+The following pages have the budget and budget justification for the lead institution:
+Lawrence Livermore National Laboratory. Budgets for subawards at other organizations are
+in the next section. Refer to the budget summary in the
+\hyperlink{sec:budget-summary}{Summary of Subawards and Project Structure} section for
+the budget breakdown.
+
+As the lead institution, LLNL will ...
+
+%\includepdf[pages=-]{budgets/budget.pdf}
+%\includepdf[pages=-]{budgets/budget-justification.pdf}
+
+% --------------------------------------------------
+% Subawards
+% -------------------------------------------------
+
+\newpage
+\section{Subaward Budgets}
+
+Subawards in alphabetical order. Each subaward includes a statement of work, budget, and
+budget justification.
+
+%\begin{itemize}
+%\item \hyperlink{sub-one}{Institution 2}
+%\item \hyperlink{sub-two}{Institution 3}
+%\end{itemize}
+
+%\clearpage
+%\hypertarget{sub-one}{}
+%\includepdf[pages=-]{budgets/one/one-sow.pdf}
+%\includepdf[pages=-]{budgets/one/one-budget.pdf}
+%\includepdf[pages=-]{budgets/one/one-budget-justification.pdf}
+
+%\hypertarget{sub-two}{}
+%\includepdf[pages=-]{budgets/two/two-sow.pdf}
+%\includepdf[pages=-]{budgets/two/two-budget.pdf}
+%\includepdf[pages=-]{budgets/two/two-budget-justification.pdf}
+
+
+\end{document}

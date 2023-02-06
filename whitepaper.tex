@@ -10,6 +10,7 @@
 % --------------------------------------------------
 \usepackage[table]{xcolor}
 \usepackage{tikz}
+\usepackage{showframe}
 
 \definecolor{secblue}{HTML}{3B5E7F}
 \definecolor{subsecblue}{HTML}{4F81BD}
@@ -116,9 +117,9 @@
 % --------------------------------------------------
 % ADD YOUR TITLE HERE (it's used in several places)
 % --------------------------------------------------
-\newcommand{\mytitle}{My Awesome Proposal}
-\newcommand{\foanumber}{DE-FOA-XXXXXXX}
-\newcommand{\foaname}{Extreme Paperwork Scalability}
+\newcommand{\mytitle}{Performance Portability with Variorum}
+\newcommand{\foanumber}{DE-FOA-0002931}
+\newcommand{\foaname}{FY23 Funding for Accelerated, Inclusive Research (FAIR)}
 
 % --------------------------------------------------
 % Headers & Geometry
@@ -128,13 +129,13 @@
 \usepackage{fancyhdr}
 
 % Header for first page
-\fancypagestyle{first}{
-        \lhead{\includegraphics[width=2.7in]{images/llnl-logo.png}}
-        \rhead{LLNL-PROP-XXXXXX\\
-        Program Announcement Number: \foanumber\\
-        \foaname}
-        \cfoot{}
-}
+%\fancypagestyle{first}{
+%        \lhead{\includegraphics[width=2.7in]{images/llnl-logo.png}}
+%        \rhead{LLNL-PROP-XXXXXX\\
+%        Program Announcement Number: \foanumber\\
+%        \foaname}
+%        \cfoot{}
+%}
 
 
 \renewcommand{\headrulewidth}{0pt}
@@ -167,9 +168,19 @@
 %
 \author{
 \begin{tabularx}{0.8\textwidth}{r X}
-  \lbox Principal Investigator     & \rbox Name, Job Title \\
+  \lbox Principal Investigator     & \rbox Dr. Suzanne Rivoire, Professor of Computer Science\\
+  \lbox Institution                & \rbox Sonoma State University \\
+  \lbox Email                      & \rbox \href{mailto:rivoire@sonoma.edu}{rivoire@sonoma.edu} \\
+  \lbox Phone                      & \rbox 707-664-3337 \\
+  \hline
+  \lbox Partner                    & \rbox Dr. Barry Rountree, Computer Scientist \\
   \lbox Institution                & \rbox Lawrence Livermore National Laboratory \\
-  \lbox Email                      & \rbox (925) 42X-XXXX, \href{mailto:you@llnl.gov}{you@llnl.gov} \\
+  \lbox Email                      & \rbox \href{mailto:rountree@llnl.gov}{rountree@llnl.gov} \\
+  \lbox Phone                      & \rbox 925-422-3520 \\
+  \hline
+  \lbox FOA                        & \rbox DE-FOA-0002931 \\
+  \lbox Program                    & \rbox ASCR \\
+  \lbox Subprogram                 & \rbox Computer Science \\
   \hline
 \end{tabularx}
 }
@@ -181,26 +192,59 @@
 \begin{document}
 
 \maketitle
-\thispagestyle{first}
+%\thispagestyle{first}
+
+\clearpage
+\newpage
 
 \section{OBJECTIVES}
-Proposals have always been a lot of work, but in recent years the complexity of
-submitting one has grown expoentially. It is projected that by the end of the 2020's,
-ASCR proposals will require more paperwork than one can fit in the average HPC
-center's tape archive. This proposal will pioneer techniques to allow us to do more
-paperwork than ever before, saving valuable machine cycles and using much more
-efficient humans to fill in all the appopriate forms.
+This proposal will reinforce research capcity, infrastructure, and expertise
+within the Compter Science department at Sonoma State University (SSU).
 
+SSU is one of the 23 campuses of the California State University System
+a federally designated Hispanic-serving institution (HSI)
+an emerging research institution 
+
+SSU is a MS granting institutions, but CS only grants BS, so exteral collaborations
+are critical for engaging undergrad in research 
+
+RESEARCH CAPACITY:
+
+The PI has collaborated in the past with Rountree at LLNL as well as ORNL
+LLNL and SSU have had informal collaborations since 2015 including students
+being hired as interns (and eventually staff), guest talks, and Rountree teaching
+two courses, Dr. Shubbhi Taneja collaborating with Patki.
+
+This grant is necessary for faculty to remain current in the field and act as
+co-mentors, rather than simply directing potential student interns to LLNL.
+
+By being able to recruit and fund students in cohorts we can shape teams with
+an eye towards diversity and technical growth, as oppposed to one-off approaches
+that tends to reward only the most prepared (and usually the most privileged) students.
+
+The structure of having a team work on the technical objectives is important
+for promoting a sense of belonging in the research community, which is particularly
+important for students selected from under-represented populations.  In addition,
+co-mentoring allows students to both imagine a potential future in research as well as
+seeing a potential route to get there.  In prior collaborstions with ORNL, 
+the PI observed having external mentors increased sense of student ownership.  Having
+both the PI and external collaborators present gave them experience and confidence
+in sharing their ideas in a professional setting.
+
+(mine the above for a bullet list of objectives)
+
+EXPERTISE:
+Students develop facility with Linux development environments, high performance
+computing environments, variety of processor architectures, kernel mediation between
+hardware and users
+
+INSTITUTIONAL INFRASTRUCTURE:
+
+Structure of the collaboration
 
 \section{TECHNICAL APPROACH}
-Electronic forms are primarily about clicking and tabbing, so our approach focuses on
-ways for humans to build strength in their fingers and to develop muscle memory to hit
-the mouse buttong and the tab key as fast as possible. As a second-order improvement, we
-also focus on return key and copy-paste speed.
 
-\section{OUTCOMES}
-We think our work will allow the office of Science to put out FOAs at a much more rapid
-pace than they have in the past, since the main bottleneck will have been removed.
+
 
 \begingroup
 \section{REFERENCES}

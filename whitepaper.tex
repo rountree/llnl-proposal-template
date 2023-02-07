@@ -77,26 +77,26 @@
 % --------------------------------------------------
 \usepackage{titlesec}
 
-\titlespacing{\parameterization}{0em}{.4em}{.5em}
-\titlespacing{\section}{0em}{.4em}{.1em}
-\titlespacing{\subsection}{0em}{.4em}{.1em}
-\titlespacing{\subsubsection}{0em}{.4em}{.1em}
-\titlespacing{\paragraph}{0em}{.1em}{.5em}
-
-\def\secformat{\sffamily\bfseries}
-
-\titleformat{\section}{\large\secformat\color{secblue}}{\thesection}{1em}{}
-\titleformat{\subsection}{\large\secformat\color{subsecblue}}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\normalsize\secformat\color{subsecblue}}{\thesubsubsection}{1em}{}
-\titleformat{\paragraph}[runin]{\small\secformat}{\theparagraph}{1em}{}
-
-\newcommand{\tablesec}[1]{%
-        \vspace{.1em}
-        \textbf{\color{subsecblue} #1}\newline}
-
-\setlength{\parindent}{0em}
-\setlength{\parskip}{.5em}
-
+%%% \titlespacing{\parameterization}{0em}{.4em}{.5em}
+%%% \titlespacing{\section}{0em}{.4em}{.1em}
+%%% \titlespacing{\subsection}{0em}{.4em}{.1em}
+%%% \titlespacing{\subsubsection}{0em}{.4em}{.1em}
+%%% \titlespacing{\paragraph}{0em}{.1em}{.5em}
+%%% 
+%%% \def\secformat{\sffamily\bfseries}
+%%% 
+%%% \titleformat{\section}{\large\secformat\color{secblue}}{\thesection}{1em}{}
+%%% \titleformat{\subsection}{\large\secformat\color{subsecblue}}{\thesubsection}{1em}{}
+%%% \titleformat{\subsubsection}{\normalsize\secformat\color{subsecblue}}{\thesubsubsection}{1em}{}
+%%% \titleformat{\paragraph}[runin]{\small\secformat}{\theparagraph}{1em}{}
+%%% 
+%%% \newcommand{\tablesec}[1]{%
+%%%         \vspace{.1em}
+%%%         \textbf{\color{subsecblue} #1}\newline}
+%%% 
+%%% \setlength{\parindent}{0em}
+%%% \setlength{\parskip}{.5em}
+%%% 
 % --------------------------------------------------
 % Make TOC fonts match sections
 % --------------------------------------------------
@@ -138,18 +138,18 @@
 %}
 
 
-\renewcommand{\headrulewidth}{0pt}
-\pagestyle{fancy}
-\lhead{
-        \begin{tikzpicture}
-                \node[white,draw=white,shape=rectangle,fill=hdrgray] at (-8, 12)
-                {\sf\footnotesize \hbox to \textwidth{
-                        \mytitle
-                        \hfill
-                        FY23 ASCR Proposal}
-                };
-        \end{tikzpicture}
-}
+%%% \renewcommand{\headrulewidth}{0pt}
+%%% \pagestyle{fancy}
+%%% \lhead{
+%%%         \begin{tikzpicture}
+%%%                 \node[white,draw=white,shape=rectangle,fill=hdrgray] at (-8, 12)
+%%%                 {\sf\footnotesize \hbox to \textwidth{
+%%%                         \mytitle
+%%%                         \hfill
+%%%                         FY23 ASCR Proposal}
+%%%                 };
+%%%         \end{tikzpicture}
+%%% }
 \chead{}
 \rhead{}
 
@@ -243,6 +243,60 @@ INSTITUTIONAL INFRASTRUCTURE:
 Structure of the collaboration
 
 \section{TECHNICAL APPROACH}
+Evaluate GEOPM and other approaches in the literature (READEX, Adagio, Conductor).
+
+Research and develop the next generation of resource-aware runtime systems that
+can handle contemporary scientific workflows (distributed AI/ML, nontraditional
+accelerators such as Cerebras, heterogeneous computing, novel storage hierarchies) 
+as well as traditional MPI applications.
+
+Primary goal is handling multiple optimization goals (throughput, speed, utilization,
+fairness) across multiple constraints (instantaneous power, power variation, total energy, 
+temperature) for upcoming workflows and heterogenous architectures.
+
+We see this collaboration as primarily one of building research capacity, infrastructure
+and expertise.  While we expect to build upon this work to create an eventual production-
+grade runtime system, the expected deliverables will not exceed research prototypes and
+proofs of concept.  
+
+Students will:
+1. Become familiar with the existng literature
+2. Learn how to build and run existing runtime systems in HPC environments
+3. Learn how to build and configure benchmarks
+4. Learn to think about multidimensional optimization and constrains:
+how do design around and leverage tradeoffs depending on the characteristics of the
+underlying architecture.
+5. Work with diverse architectures (AMD, Intel, nVidia, Arm, IBM Power, Cerebras)
+6. Develop competence in low-level system programming (Variorum, msr-safe, NVML, OPAL, ROCM)
+7. Work with diverse programming models (MPI, OpenMP, CUDA)
+8. Explore multiple scientific workflows that do not necessarily depend on MPI. (Tensorflow, PyTorch)
+9. Learn modern linux and HPC development workflows (git, flux, nvml, rocm)
+10. Leverage linear programming and other mathematics of optimization
+
+Institutional Capacity and Expertise
+1. Expect to select six students, 2 sophomore, 2 junior, 2 senior.
+2. New students will be recruited as successful students graduate.
+3. The ability to bring new students up to speed each year will be a demonstration
+of the new non-physical institutional capacity.
+4. Other faculty (inside and outside the computer science department) 
+will be recruited based on their specialties.
+5. An enticement to hire additional research-active faculty.  
+6. Internships onsite at LLNL give access to career development resources
+that will benefit wider student population.
+
+% Don't use this.
+%For example, the team will be evaluating the suitability of GEOPM to handle a much
+%more extensive lists of hardware architectures and use cases.  The result of this
+%evaluation will be a report, and should it be deemed feasible, working examples of
+%how the underlying software structure could be modified.  We do not expect to be
+%submitting polished commits to the GEOPM project; this will be future work on other
+%funding streams.
+
+
+Runtime able to handle two types of multi-tenancy:  a single user with multiple
+jobs running on the same resources as well as multiple users running simultaneous
+jobs on a shared resource.  Note the latter will pull in issues of security,
+accounting, and fairness.
 
 
 
